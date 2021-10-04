@@ -61,8 +61,11 @@ public class Fila {
 			}
 			No auxiliar = inicio;
 			while(auxiliar != null) {
+				System.out.print(auxiliar.toString() + " ==> ");
 				auxiliar = auxiliar.proximo;
 			}
+			System.out.print("NULL");
+			System.out.println("");
 		}
 		
 		public int size() {
@@ -97,4 +100,23 @@ public class Fila {
 			return auxiliar.dado;
 		}
 		
+		@Override
+		public String toString() {
+			StringBuffer buffer = new StringBuffer();
+			int tamanho = size();
+			try {
+				for(int i = 0; i < tamanho ; i++) {
+					buffer.append("[");
+					buffer.append(get(i));
+					buffer.append("]");
+					buffer.append("[]->");
+					if(i == tamanho - 1) {
+						buffer.append("NULL");
+					}
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			return buffer.toString();
+		}
 }
